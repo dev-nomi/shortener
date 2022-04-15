@@ -1,8 +1,11 @@
 <template>
   <v-app> 
-    <v-container>
-      <Home/>
-    </v-container>
+    <v-main>
+      <v-container>
+        <router-link to="/">Go to Home</router-link>
+        <router-link to="/about">Go to About</router-link>        <router-view />
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
