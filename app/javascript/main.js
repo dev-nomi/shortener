@@ -1,11 +1,14 @@
-import Vue from 'vue/dist/vue.js'
+import Vue from 'vue'
 import App from './components/app.vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+
+Vue.use(Vuetify);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('app'))
   const app = new Vue({
-    el: 'app',
-    template: '<App/>',
-    components: { App }
-  })
+    vuetify: new Vuetify(),
+    render: h => h(App)
+  }).$mount()
+  document.body.appendChild(app.$el);
 })

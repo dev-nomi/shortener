@@ -1,23 +1,25 @@
 <template>
-  <div id='app'>
-    <p>{{ message }}</p>
-  </div>
-
+  <v-app> 
+    <v-container>
+      <Home/>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
+  import Home from './home.vue'
   export default {
-    data: function () {
+    components: {
+      Home
+    },
+    data() {
       return {
-        message: "Welcome to vue!"
+
       }
-    }
+    },
   }
 </script>
 
 <style scoped>
-  p {
-    font-size: 2em;
-    text-align: center;
-  }
+
 </style>

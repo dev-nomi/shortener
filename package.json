@@ -8,7 +8,8 @@
     "esbuild-rails": "^1.0.3",
     "esbuild-vue": "^1.2.1",
     "vue": "2.6.14",
-    "vue-template-compiler": "2.6.14"
+    "vue-template-compiler": "2.6.14",
+    "vuetify": "^2.6.4"
   },
   "scripts": {
     "build": "node esbuild.config.js"
