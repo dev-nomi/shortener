@@ -4,6 +4,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo-rails": "^7.1.1",
+    "axios": "^0.26.1",
     "esbuild": "^0.14.36",
     "esbuild-rails": "^1.0.3",
     "esbuild-vue": "^1.2.1",

@@ -37,10 +37,17 @@
 	      Create Link
 	    </v-btn>
 	  </v-form>
+	  <div v-for="shortLink in shortLinks" :key="shortLink.id" class="container mx-auto px-60 mt-5">
+	    <div class="card">
+	      <div> Name : {{ shortLink.name }} </div>
+	      <div> Long url : {{ shortLink.long_url }} </div>
+	    </div>
+  	</div>
 	</div>
 </template>
 
 <script>
+	import axios from 'axios';
 	export default{
 		data(){
 			return{
@@ -54,6 +61,14 @@
         isLoadingLog: false,
 			}
 		},
+
+		mounted() {
+      axios.get('/short_links')
+        .then((response) => {
+          this.shortLinks = response.data; 
+          console.log(response.data);
+        })
+    },
 
 		methods: {
 			hello(){
