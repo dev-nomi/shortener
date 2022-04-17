@@ -2,8 +2,50 @@
   <v-app> 
     <v-main>
       <v-container>
-        <router-link to="/">Go to Home</router-link>
-        <router-link to="/about">Go to About</router-link>        <router-view />
+        <v-row no-gutters class="my-4" justify="center">
+          <v-col cols="8">
+            <v-navigation-drawer v-model="sidebar" app>
+              <v-list>
+                <v-list-tile
+                  v-for="item in menuItems"
+                  :key="item.title"
+                  :to="item.path">
+                  <v-list-tile-action>
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+                </v-list-tile>
+              </v-list>
+            </v-navigation-drawer>
+
+            <v-toolbar app>
+              <span class="hidden-sm-and-up">
+                <v-toolbar-side-icon @click="sidebar = !sidebar">
+                </v-toolbar-side-icon>
+              </span>
+              <v-toolbar-title>
+                <router-link to="/" tag="span" style="cursor: pointer">
+                  {{ appTitle }}
+                </router-link>
+              </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-toolbar-items class="hidden-xs-only">
+                <v-btn
+                  flat
+                  v-for="item in menuItems"
+                  :key="item.title"
+                  :to="item.path">
+                  <!-- <v-icon left dark>{{ item.icon }}</v-icon> -->
+                  {{ item.title }}
+                </v-btn>
+              </v-toolbar-items>
+            </v-toolbar>
+            
+            <v-content>
+              <router-view></router-view>
+            </v-content>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -17,7 +59,12 @@
     },
     data() {
       return {
-
+        appTitle: 'Shortener',
+        sidebar: false,
+        menuItems: [
+          { title: 'Home', path: '/' },
+          { title: 'About', path: '/about' },
+        ],
       }
     },
   }
